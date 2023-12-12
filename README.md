@@ -7,3 +7,6 @@ https://www.youtube.com/watch?v=drF8HbnW87w&ab_channel=CodeCommerce
 
 update:
 I will be back to figure out this one. I went through it hastily. I am going to start from scratch on the tutorial and see if that works.
+
+update 2: 
+did not need to redo tutorial, I had forgotten that I need to stop running the app and then do npm start again after install of tailwind
