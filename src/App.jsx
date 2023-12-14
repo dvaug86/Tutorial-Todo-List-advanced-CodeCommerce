@@ -10,6 +10,7 @@ import {
   updateDoc,
   doc,
   addDoc,
+  deleteDoc,
 } from "firebase/firestore";
 
 const style = {
@@ -29,15 +30,15 @@ function App() {
   // create todo
   const createTodo = async (e) => {
     e.preventDefault(e);
-    if(input === ''){
-      alert('Please enter a valid todo')
-      return
+    if (input === "") {
+      alert("Please enter a valid todo");
+      return;
     }
-    await addDoc(collection(db, 'todos'), {
+    await addDoc(collection(db, "todos"), {
       text: input,
-      completed: false
-    })
-    setInput('')
+      completed: false,
+    });
+    setInput("");
   };
   // read todo
   useEffect(() => {
@@ -59,6 +60,9 @@ function App() {
   };
 
   // delete todo
+  const deleteTodo = async (id) => {
+    await deleteDoc(doc(db, "todos", id));
+  };
 
   return (
     <div className={style.bg}>
@@ -78,11 +82,17 @@ function App() {
         </form>
         <ul>
           {todos.map((todo, index) => (
-            <Todo key={index} todo={todo} toggleComplete={toggleComplete} />
+            <Todo
+              key={index}
+              todo={todo}
+              toggleComplete={toggleComplete}
+              deleteTodo={deleteTodo}
+            />
           ))}
         </ul>
-        {todos.length < 1 ? null : <p className={style.count}>{`You have ${todos.length} todos`}</p>}
-        
+        {todos.length < 1 ? null : (
+          <p className={style.count}>{`You have ${todos.length} todos`}</p>
+        )}
       </div>
     </div>
   );
