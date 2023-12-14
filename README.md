@@ -10,3 +10,6 @@ I will be back to figure out this one. I went through it hastily. I am going to 
 
 update 2: 
 did not need to redo tutorial, I had forgotten that I need to stop running the app and then do npm start again after install of tailwind
+
+update 3:
+tutorial is completed. This might be my favorite one. I did start skiing over my tips when I initially started with trying to put the keys in a .env file. However he does have a follow up video which I am going to watch that shows how to do it so I can figure out my mistakes.
